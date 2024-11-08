@@ -1,12 +1,17 @@
-import pandas as pd
+import streamlit as st
 import matplotlib.pyplot as plt
+import numpy as np
 
-# Load data
-df = pd.read_csv('data.csv')
+# Create sample data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
 
-# Plot a simple bar chart
-plt.bar(df['Category'], df['Sales'])
-plt.xlabel('Category')
-plt.ylabel('Sales')
-plt.title('Sales by Category')
-plt.show()
+# Create a title
+st.title("Sine Wave Visualization")
+
+# Plot the data
+fig, ax = plt.subplots()
+ax.plot(x, y)
+ax.set_xlabel('x')
+ax.set_ylabel('sin(x)')
+st.pyplot(fig)
